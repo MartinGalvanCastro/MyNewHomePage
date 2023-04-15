@@ -1,0 +1,42 @@
+@import "./CommonColors";
+
+.dark-theme{
+    h1, h2, h3, h4, h5, p, span{
+        color: $white-common; 
+    }
+    hr{
+        background-color: $white-common;
+        height: 1px;
+        border: none;
+    }
+    .data-container {
+        background-color: $black-common;
+        box-shadow: -12px -12px 24px #3E3E3E, 12px 12px 24px #1E1E1E;
+      }
+}
+
+.light-theme{
+    h1, h2, h3, h4, h5, p, span{
+        color: $black-common; 
+    }
+    hr{
+        background-color: $black-common;
+        height: 1px;
+        border: none;
+    }
+    .data-container {
+        background-color: $white-common;
+        box-shadow: 10px 10px 24px rgba(166, 180, 200, 0.7), -12px -12px 20px rgba(255, 255, 255, 0.8);
+      }
+}
+
+
+.App{
+    padding: 10vmin 0vmin 0vmin 0vmin;
+    margin-top: 6vmin;
+    padding-top: 5vmin;
+    padding-left: 2vmin;
+    padding-right: 2vmin;
+    min-height: max-content;
+}
+

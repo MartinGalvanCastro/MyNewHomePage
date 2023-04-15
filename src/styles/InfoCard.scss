@@ -1,0 +1,75 @@
+@import "CommonColors";
+.light-theme {
+  a {
+    color: $black-common;
+    link {
+      color: $black-common;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    visited {
+      color: $black-common;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    hover {
+      color: $gray-common;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+    active {
+      color: $gray-common;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+  }
+}
+
+.dark-theme {
+  a {
+    color: $white-common;
+    link {
+      color: $white-common;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    visited {
+      color: $white-common;
+      background-color: transparent;
+      text-decoration: none;
+    }
+    hover {
+      color: $gray-common;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+    active {
+      color: $gray-common;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+  }
+}
+
+#data-container {
+  padding: 0;
+  z-index: 1;
+  border-radius: 1rem;
+  position: relative;
+}
+
+.icon {
+  font-size: 2rem;
+}
+
+.img-container {
+  padding: 1vmin;
+}
+
+img {
+  max-height: 125vmin;
+}
+
+.name{
+  text-align: center;
+}

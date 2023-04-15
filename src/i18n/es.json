@@ -1,0 +1,6 @@
+{
+    "info.contact":"Haz click en cualquiera de mis redes para contactarme:",
+    "info.github":"Tambien puedes revisar mi link de Github:",
+    "footer.title":"Sobre este sitio web:",
+    "footer.content":"Este sitio web fue diseñado para mostrar algunos de mis trabajos, conocimientos y mi currículum. \n Este sitio web fue construido en React, utilizando las bibliotecas tsParticles, I18next y React-Bootstrap y PWA. \n Si estás interesado en mi perfil, no dudes en ponerte en contacto conmigo a través de correo electrónico, Linkedin o Whatsapp."
+}

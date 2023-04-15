@@ -1,10 +1,21 @@
-import react from '@vitejs/plugin-react'
-import ssr from 'vite-plugin-ssr/plugin'
-import { UserConfig } from 'vite'
-import tsconfigPaths from 'vite-tsconfig-paths'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import tsconfigPaths from 'vite-tsconfig-paths';
+import path from 'path';
 
-const config: UserConfig = {
-  plugins: [react(), ssr(), tsconfigPaths()]
-}
-
-export default config
+// https://vitejs.dev/config/
+export default defineConfig({
+	plugins: [react(),tsconfigPaths({
+		root:__dirname,
+	})],
+	root: path.resolve(__dirname, 'src'),
+	resolve: {
+		alias: {
+			'~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
+			'@':path.resolve(__dirname, 'src')
+		}
+	},
+	server:{
+		port:3000,
+	}
+});
