@@ -1,5 +1,5 @@
-import React from 'react';
-import porfilePic from '../assets/perfil.jpg';
+import React, {FC,Suspense, Fragment} from 'react';
+import porfilePic from 'assets/perfil.jpg';
 import {Col,Row, Container} from 'react-bootstrap';
 import { FaLinkedinIn, FaGithub, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 import 'styles/InfoCard.scss';
@@ -40,25 +40,36 @@ export const SMRecord : Record<string,SMLink> = {
  * Component that renders the info card
  * @returns 
  */
-const InfoCard = () =>{
+const InfoCard:FC = () =>{
 
 	//i18n hook
 	const { t } = useTranslation();
 
 
+	/**
+	 * Auxiliary funciton to render porfile pic
+	 * @returns Porfile Pic
+	 */
 	const _renderPorfilePic = ()=>
 		(
 			<Row className="img-container">
-				<img
-					className="img-fluid rounded"
-					src={porfilePic}
-					alt="porfile_pic"
-					id="porfile_pic"
-					loading="lazy"
-				/>
+				<Suspense fallback={'Loading...'}>
+					<img
+						className="img-fluid rounded"
+						src={porfilePic}
+						alt="porfile_pic"
+						id="porfile_pic"
+						loading="lazy"
+					/>
+				</Suspense>
+				
 			</Row>
 		);
 
+	/**
+		 * Auxiliary function that render the container info
+		 * @returns 
+		 */
 	const _renderInfoContainer = ()=>
 		(
 			<>
@@ -90,12 +101,12 @@ const InfoCard = () =>{
 		);
 
 	return (
-		<Container className="mb-sm-2 data-container">
+		<Fragment>
 			{_renderPorfilePic()}
 			<Container>
 				{_renderInfoContainer()}	
 			</Container>
-		</Container>
+		</Fragment>
 	);
 };
 

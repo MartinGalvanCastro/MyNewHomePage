@@ -23,5 +23,6 @@ export default defineConfig({
 		},
 		exclude:[...configDefaults.exclude],
 		globals: true,
+		watch:false
 	},
 });

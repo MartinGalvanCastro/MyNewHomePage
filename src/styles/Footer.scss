@@ -1,34 +1,38 @@
 @import "CommonColors";
 
-.dark-theme {
-    #footer {
-        h5, p{
-            background-color: $black-common;
-            color: $white-common;
-            width: fit-content;
-            
-        }
+#footer {
+    padding: 2vmin 1vmin 2vmin 1vmin;
+    z-index: 1;
+    width: 100%;
+    position: relative;
+
+    h5,
+    p {
+        text-align: justify;
+        width: fit-content;
+        margin: 0px;
+        padding: 0px;
     }
 }
 
 .light-theme {
     #footer {
-        h5, p{
-            background-color: $white-common;
+        background-color: $white-common;
+
+        h5,
+        p {
             color: $black-common;
         }
     }
 }
 
-#footer{
-    padding: 2vmin 1vmin 2vmin 1vmin;
-    z-index: 1;
-    width: fit-content;
-    position: relative;
-    h5, p{
-        text-align: justify;
-        width: fit-content;
-        margin: 0px;
-        padding: 0px;
+.dark-theme {
+    #footer {
+        background-color: $black-common;
+
+        h5,
+        p {
+            color: $white-common;
+        }
     }
 }

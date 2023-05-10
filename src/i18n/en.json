@@ -1,5 +1,5 @@
 {
-    "info.contact":"Click on one of my socual networks to contact me:",
+    "info.contact":"Click on one of my social networks to contact me:",
     "info.github":"You can also check my Github porfile:",
     "footer.title":"About this website",
     "footer.content":" This Website was designed for showing some of my work, knowledge and my resume. \n This Website was build on React, and using the libraries tsParticles, I18next, React-Bootstrap and PWA. \n If you are interested on my porfile, do not hesitate on contacting me via email, Linkedin or Whatsapp."
