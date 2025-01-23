@@ -1,11 +1,13 @@
 "use client";
 
 import { I18nDropdown } from "@/core/components/i18nDropdown";
+import { ThemeToggle } from "@/core/components/themeToggle";
 import { useGetLocale } from "@/core/hooks/useGetLocale";
 import { getTranslation } from "@/core/utils/i18n";
 import Image from "next/image";
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { defineMessages, useIntl } from "react-intl";
+import { themeChange } from "theme-change";
 
 const translations = {
   en: {
@@ -22,6 +24,7 @@ const translations = {
 export default function Home() {
   const { locale } = useGetLocale();
   const intl = useIntl();
+  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "nord");
 
   const messages = useMemo(
     () =>
@@ -32,8 +35,20 @@ export default function Home() {
           description: "Welcome message",
         },
       }),
-    []
+    [locale]
   );
+
+  useEffect(() => {
+    themeChange(false);
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "nord" ? "night" : "nord";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+  };
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -47,7 +62,7 @@ export default function Home() {
           priority
         />
         <h1>{intl.formatMessage(messages.title)}</h1>
-
+        <ThemeToggle />
         <I18nDropdown />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
