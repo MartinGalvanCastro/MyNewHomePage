@@ -1,8 +1,5 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  locales: ["en", "es", "pt"],
-  defaultLocale: "en",
-};
+const nextConfig: NextConfig = {};
 
 export default nextConfig;

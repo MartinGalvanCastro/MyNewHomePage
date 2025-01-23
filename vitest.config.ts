@@ -19,6 +19,8 @@ export default defineConfig({
         "**/**/testingUtils/**/*.{ts,tsx}",
         "**/layout.tsx",
         "**/page.tsx",
+        "**/**/AppProvider.tsx",
+        "middleware.ts",
       ],
     },
   },

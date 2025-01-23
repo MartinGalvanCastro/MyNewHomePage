@@ -24,6 +24,12 @@
     "typeRoots": ["node_modules"],
     "types": ["vitest/globals"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/core/hooks/useGetLocale/useGetLocale.ts"
+  ],
   "exclude": ["node_modules"]
 }
