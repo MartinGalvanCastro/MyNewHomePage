@@ -1,42 +1,46 @@
+"use client";
+
 import { CommonProps } from "@/core/types/commonProps";
 import { useEffect, useCallback, useState } from "react";
 import { themeChange } from "theme-change";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 
 export interface ThemeToggleProps extends CommonProps {}
 
 export const ThemeToggle = ({ testId }: ThemeToggleProps) => {
-  const [theme, setTheme] = useState<string>("nord");
-
-  useEffect(() => {
+  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(() => {
     if (typeof window !== "undefined") {
-      const storedTheme = localStorage.getItem("theme") || "nord";
-      setTheme(storedTheme);
-      document.documentElement.setAttribute("data-theme", storedTheme);
-      themeChange(false);
+      return localStorage.getItem("theme") === "dim";
     }
-  }, []);
+    return false;
+  });
 
   useEffect(() => {
     if (typeof window !== "undefined") {
+      const theme = isDarkTheme ? "dim" : "nord";
       document.documentElement.setAttribute("data-theme", theme);
       themeChange(false);
     }
-  }, [theme]);
+  }, [isDarkTheme]);
 
   const toggleTheme = useCallback(() => {
-    const newTheme = theme === "nord" ? "night" : "nord";
-    setTheme(newTheme);
+    setIsDarkTheme((prev) => !prev);
+    const newTheme = !isDarkTheme ? "dim" : "nord";
     localStorage.setItem("theme", newTheme);
     document.documentElement.setAttribute("data-theme", newTheme);
-  }, [theme]);
+  }, [isDarkTheme]);
 
   return (
-    <input
-      type="checkbox"
-      className="toggle"
-      checked={theme === "night"}
-      data-testid={testId}
-      onClick={toggleTheme}
-    />
+    <div className="flex items-center">
+      {isDarkTheme ? <DarkModeIcon /> : <LightModeIcon />}
+      <input
+        type="checkbox"
+        className="toggle ml-2"
+        checked={isDarkTheme}
+        data-testid={testId}
+        onChange={toggleTheme}
+      />
+    </div>
   );
 };

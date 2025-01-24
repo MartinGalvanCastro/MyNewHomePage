@@ -14,9 +14,12 @@ const handleError = (error: OnError): void => {
     return;
   }
 
-  if (error.code === "MISSING_TRANSLATION") {
-    console.error(`[${error.code}]`, error.descriptor);
+  if (error.code !== "MISSING_TRANSLATION") {
     return;
+  }
+
+  if (error.descriptor?.defaultMessage) {
+    console.error(`[${error.code}]`, error.descriptor);
   }
 };
 

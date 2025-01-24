@@ -1,5 +1,5 @@
 import { render, fireEvent } from "@testing-library/react";
-import { ThemeToggle } from "./themeToggle";
+import { ThemeToggle } from "./ThemeToggle";
 import sinon, { SinonSandbox, SinonStub } from "sinon";
 
 const TEST_ID = "theme-toggle";

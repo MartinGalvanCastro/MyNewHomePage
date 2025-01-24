@@ -20,11 +20,11 @@ export const I18nDropdown: React.FC<I18nDropdownProps> = ({ testId }) => {
         className="btn m-1"
         data-testid={`${testId}.current-${currentLocale}`}
       >
-        {currentLocale}
+        {currentLocale.toUpperCase()}
       </div>
       <ul
         tabIndex={0}
-        className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+        className="dropdown-content menu bg-base-100 rounded-box z-[1] w-auto p-2 shadow"
       >
         {SUPPORTED_LOCALES.filter((locale) => locale !== currentLocale).map((locale) => (
           <li key={locale} data-testid={`${testId}.option-${locale}`}>
@@ -33,7 +33,7 @@ export const I18nDropdown: React.FC<I18nDropdownProps> = ({ testId }) => {
                 switchLocale(locale);
               }}
             >
-              {locale}
+              {locale.toUpperCase()}
             </a>
           </li>
         ))}
