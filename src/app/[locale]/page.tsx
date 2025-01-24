@@ -1,13 +1,14 @@
 "use client";
 
 import { I18nDropdown } from "@/core/components/i18nDropdown";
-import { ThemeToggle } from "@/core/components/themeToggle";
+import { ThemeToggle } from "@/core/components/ThemeToggle";
 import { useGetLocale } from "@/core/hooks/useGetLocale";
 import { getTranslation } from "@/core/utils/i18n";
 import Image from "next/image";
 import { useMemo, useState, useEffect } from "react";
 import { defineMessages, useIntl } from "react-intl";
 import { themeChange } from "theme-change";
+import { Navbar } from "../../core/components/Navbar/Navbar";
 
 const translations = {
   en: {
@@ -24,7 +25,6 @@ const translations = {
 export default function Home() {
   const { locale } = useGetLocale();
   const intl = useIntl();
-  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "nord");
 
   const messages = useMemo(
     () =>
@@ -38,32 +38,11 @@ export default function Home() {
     [locale]
   );
 
-  useEffect(() => {
-    themeChange(false);
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    const newTheme = theme === "nord" ? "night" : "nord";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme);
-  };
-
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <Navbar />
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
         <h1>{intl.formatMessage(messages.title)}</h1>
-        <ThemeToggle />
-        <I18nDropdown />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a

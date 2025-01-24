@@ -6,6 +6,8 @@ import sinon, { SinonSandbox, SinonStub } from "sinon";
 import { render } from "@testing-library/react";
 import * as UseGetLocale from "../../hooks/useGetLocale";
 
+//TODO: Update test for not login when defaultMessage is not missing
+
 const createMessage = () => defineMessage({ id: "id", defaultMessage: "This is the default" });
 const Component = ({ message }: { message: MessageDescriptor }) => {
   const intl = useIntl();
